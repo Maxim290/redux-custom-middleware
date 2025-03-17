@@ -3,7 +3,7 @@
 ### Features:
 
 -   Custom Redux middleware for logging actions
--   Works with Next.js
+-   Works with React.js
 -   Example Redux store setup
 
 ### Installation:
