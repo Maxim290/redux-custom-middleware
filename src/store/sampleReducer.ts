@@ -1,10 +1,21 @@
-const initialState = {
+interface State {
+    data: any | null;
+    loading: boolean;
+    error: string | null;
+}
+
+const initialState: State = {
     data: null,
     loading: false,
     error: null,
 };
 
-const sampleReducer = (state = initialState, action) => {
+type Action =
+    | { type: "ASYNC_ACTION_START" }
+    | { type: "ASYNC_ACTION_SUCCESS"; payload: any }
+    | { type: "ASYNC_ACTION_ERROR"; error: string };
+
+const sampleReducer = (state: State = initialState, action: Action): State => {
     switch (action.type) {
         case "ASYNC_ACTION_START":
             return {

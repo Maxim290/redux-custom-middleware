@@ -1,4 +1,6 @@
-const loggerMiddleware = () => (next) => (action) => {
+import { Middleware } from "redux";
+
+const loggerMiddleware: Middleware = () => (next) => (action) => {
     if (typeof action === "function") {
         console.log("Dispatching async action:", action.name || "anonymous");
     } else {

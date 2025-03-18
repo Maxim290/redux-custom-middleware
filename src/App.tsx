@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { asyncAction } from "./actions/sampleActions";
+import { RootState, useAppDispatch } from "./store";
 
 function App() {
-    const dispatch = useDispatch();
-    const { data, loading, error } = useSelector((state) => state.sample);
+    const dispatch = useAppDispatch();
+    const { data, loading, error } = useSelector(
+        (state: RootState) => state.sample
+    );
 
     useEffect(() => {
         dispatch(asyncAction());
